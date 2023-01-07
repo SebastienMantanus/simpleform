@@ -3,6 +3,7 @@ import Footer from "./components/Footer";
 import Header from "./components/Header";
 import { useState } from "react";
 import Form from "./components/Form";
+import StepTwo from "./components/StepTwo";
 
 function App() {
   const [name, setName] = useState("");
@@ -16,8 +17,25 @@ function App() {
     <div className="App">
       <Header />
       <main>
-        <Form />
+        <Form
+          name={name}
+          email={email}
+          password={password}
+          passwordValidation={passwordValidation}
+          setName={setName}
+          setEmail={setEmail}
+          setPassword={setPassword}
+          setPasswordValidation={setPasswordValidation}
+          setConfirmationBox={setConfirmationBox}
+        />
+        <div>{name}</div>
+        <div>{email}</div>
+        <div>{password}</div>
+        <div>{passwordValidation}</div>
+        <div>{confirmationBox ? "VRAI" : "FAUX"}</div>
       </main>
+      <StepTwo name={name} email={email} password={password} />
+
       <Footer />
     </div>
   );
